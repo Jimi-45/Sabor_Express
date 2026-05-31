@@ -1,8 +1,8 @@
 import subprocess
 
-restaurantes = [{'nome': 'Praça', 'categoria': 'Japonesa', 'ativo': 'False'},
-                {'nome': 'Pizza Suprema', 'categoria': 'Pizza', 'ativo': 'True'},
-                {'nome': 'Cantina', 'categoria': 'Italiano', 'ativo': 'False'}]
+restaurantes = [{'nome': 'Praça', 'categoria': 'Japonesa', 'ativo': False},
+                {'nome': 'Pizza Suprema', 'categoria': 'Pizza', 'ativo': True},
+                {'nome': 'Cantina', 'categoria': 'Italiano', 'ativo': False}]
 
 
 def exibir_nome_do_programa():
@@ -19,7 +19,7 @@ def exibir_nome_do_programa():
 def mostrar_opcoes():
     print('1. Cadastrar restaurante')
     print('2. Listar restaurante')
-    print('3. Ativar restaurante')
+    print('3. Alternar estado do restaurante')
     print('4. Sair\n')
 
 
@@ -71,7 +71,7 @@ def alternar_restaurante():
     restaurante_encontrado = False
 
     for restaurante in restaurantes:
-        if nome_restaurante == restaurante['nome']:
+        if nome_restaurante.lower() == restaurante['nome'].strip().lower():
             restaurante_encontrado = True
             restaurante['ativo'] = not restaurante['ativo']
             mensagem = f'O restaurante {nome_restaurante} foi ativado com sucesso' if restaurante['ativo'] else f'O restaurante {nome_restaurante} foi desativado com sucesso'
