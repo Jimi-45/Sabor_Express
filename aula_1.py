@@ -37,7 +37,10 @@ def opcao_invalida():
 
 def exibir_subtitulo(texto):
     subprocess.run('cls', shell=True)
+    linha = '*' * (len(texto))
+    print(linha)
     print(texto)
+    print(linha)
     print()
 
 def cadastrar_novo_restaurante():
